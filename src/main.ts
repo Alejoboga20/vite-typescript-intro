@@ -3,7 +3,7 @@ import typescriptLogo from './typescript.svg';
 import { setupCounter } from './counter';
 
 import { templateStrings } from './bases/01-types';
-import { pokemonIds } from './bases/02-objects';
+import { pokemonIds, pokemons } from './bases/02-objects';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -21,6 +21,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Hey ${templateStrings}, Click on the Vite and TypeScript logos to learn more
     </p>
     <code>PokemonIds: ${pokemonIds}</code>
+    <div>
+      <code>Pokemons: ${JSON.stringify(pokemons)}</code>
+    </div>
   </div>
 `;
 

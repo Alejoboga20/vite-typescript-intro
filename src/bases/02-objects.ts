@@ -11,3 +11,6 @@ interface Pokemon {
 	name: string;
 	age?: number | undefined;
 }
+
+export const pokemons: Pokemon[] = [{ id: 1, name: 'Charmander' }];
+pokemons.push({ id: 2, name: 'Pikachu' });
