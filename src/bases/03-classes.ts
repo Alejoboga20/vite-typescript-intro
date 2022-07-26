@@ -10,6 +10,8 @@
 Long way
 */
 
+import axios from 'axios';
+
 //best way
 export class Pokemon {
 	constructor(public readonly id: number, public name: string) {}
@@ -29,8 +31,17 @@ export class Pokemon {
 	private speak() {
 		console.log(`Hello, my name is ${this.name}`);
 	}
+
+	async getMoves() {
+		const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.id}`);
+
+		return data?.moves;
+	}
 }
 
 export const charmander = new Pokemon(4, 'charmander');
 console.log(charmander);
 charmander.scream();
+
+const moves = await charmander.getMoves();
+console.log(moves);
