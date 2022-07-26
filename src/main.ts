@@ -4,6 +4,7 @@ import { setupCounter } from './counter';
 
 import { templateStrings } from './bases/01-types';
 import { pokemonIds, pokemons } from './bases/02-objects';
+import { charmander } from './bases/03-classes';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -23,6 +24,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <code>PokemonIds: ${pokemonIds}</code>
     <div>
       <code>Pokemons: ${JSON.stringify(pokemons)}</code>
+    </div>
+    <div>
+      <code>Pokemon with class: ${JSON.stringify(charmander)}</code>
     </div>
   </div>
 `;
