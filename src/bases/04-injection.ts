@@ -1,4 +1,4 @@
-import { PokeApiAdapter } from '../api/pokeApi.adapter';
+import { HttpAdapter, PokeApiAdapter, PokeApiFetchAdapter } from '../api/pokeApi.adapter';
 import { Move, PokeapiResponse } from '../interfaces/pokeapi-response.interface';
 
 export class Pokemon {
@@ -11,7 +11,7 @@ export class Pokemon {
 		public name: string,
 
 		//Dependency injection
-		private readonly http: PokeApiAdapter
+		private readonly http: HttpAdapter
 	) {}
 
 	scream() {
@@ -32,8 +32,11 @@ export class Pokemon {
 	}
 }
 
+const pokeApiFetch = new PokeApiFetchAdapter();
 const pokeApi = new PokeApiAdapter();
 
 export const charmander = new Pokemon(4, 'Charmander', pokeApi);
+export const bulbasaur = new Pokemon(1, 'Bulbasaur', pokeApiFetch);
 
 charmander.getMoves();
+bulbasaur.getMoves();

@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-export class PokeApiAdapter {
+export interface HttpAdapter {
+	get: <T>(url: string) => Promise<T>;
+}
+
+export class PokeApiAdapter implements HttpAdapter {
 	private readonly axios = axios;
 
 	async get<T>(url: string) {
@@ -8,10 +12,13 @@ export class PokeApiAdapter {
 
 		return data;
 	}
+}
 
-	async post(url: string, payload: any) {}
+export class PokeApiFetchAdapter implements HttpAdapter {
+	async get<T>(url: string) {
+		const response = await fetch(url);
+		const data: T = await response.json();
 
-	async patch(url: string, payload: any) {}
-
-	async delete(url: string) {}
+		return data;
+	}
 }
